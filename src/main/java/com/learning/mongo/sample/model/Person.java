@@ -2,19 +2,17 @@ package com.learning.mongo.sample.model;
 
 import org.bson.BsonType;
 import org.bson.codecs.pojo.annotations.*;
+import org.bson.types.ObjectId;
 
 import java.util.Map;
 
 public class Person {
-    @BsonId()
-    @BsonRepresentation(BsonType.OBJECT_ID)
-    private String serialNumber;
     @BsonProperty
     private String name;
     @BsonProperty
     private Integer age;
     @BsonExtraElements
-    private Map<String, String> misc;
+    private Map<String, Object> misc;
 
     @BsonCreator
     public Person() {}
@@ -35,11 +33,20 @@ public class Person {
         return age;
     }
 
-    public Map<String, String> getMisc() {
+    public Map<String, Object> getMisc() {
         return misc;
     }
 
-    public void setMisc(Map<String, String> misc) {
+    public void setMisc(Map<String, Object> misc) {
         this.misc = misc;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", misc=" + misc +
+                '}';
     }
 }

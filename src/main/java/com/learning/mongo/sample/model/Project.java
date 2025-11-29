@@ -28,4 +28,12 @@ public class Project {
     public void setYears(Integer years) {
         this.years = years;
     }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "name='" + name + '\'' +
+                ", years=" + years +
+                '}';
+    }
 }

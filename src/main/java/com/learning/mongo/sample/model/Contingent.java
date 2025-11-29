@@ -43,4 +43,13 @@ public class Contingent extends Person {
     public void setContractYears(int contractYears) {
         this.contractYears = contractYears;
     }
+
+    @Override
+    public String toString() {
+        return "Contingent{" +
+                "id='" + id + '\'' +
+                ", contractYears=" + contractYears +
+                ", projects=" + projects +
+                '}';
+    }
 }
