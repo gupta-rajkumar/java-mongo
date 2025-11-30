@@ -10,10 +10,13 @@ public abstract class MongoDao<T extends Person> implements Dao<T> {
     public final MongoClient client;
     public static final String DB = "company";
 
+    public Class<T> clazz;
+
     public MongoCollection<T> collection;
 
     public MongoDao(MongoClient client, Class<T> clazz) {
         this.client = client;
+        this.clazz = clazz;
         this.collection = client.getDatabase(DB).getCollection("person", clazz);
     }
 
